@@ -26,6 +26,12 @@ dependencies:
   # For state management
   flutter_bloc: ^8.0.1
 
+  # For internet connections
+  http: ^0.13.4
+
+  # Internationalization, numbers etc
+  intl: ^0.17.0
+
   url_launcher: ^6.1.2
   walletconnect_dart: ^0.0.11
   google_fonts: ^3.0.1

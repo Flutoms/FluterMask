@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Text('Connect to a Polygon wallet to use this service',
-                        style: TextStyle(color: GlobalColors.white)),
+                        style: TextStyle(color: GlobalColors.white.withAlpha(150))),
                     const SizedBox(height: 50),
                   ],
                 ),

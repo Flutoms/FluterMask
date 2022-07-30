@@ -1,40 +1,39 @@
-// To parse this JSON data, do
-//
-//     final transactionModel = transactionModelFromMap(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-TransactionModel transactionModelFromMap(String str) => TransactionModel.fromMap(json.decode(str));
+TransactionModel transactionModelFromMap(String str) =>
+    TransactionModel.fromMap(json.decode(str));
 
-String transactionModelToMap(TransactionModel data) => json.encode(data.toMap());
+String transactionModelToMap(TransactionModel data) =>
+    json.encode(data.toMap());
 
 class TransactionModel {
   TransactionModel({
     required this.status,
     required this.message,
-    required this.result,
+    required this.transactions,
   });
 
   String status;
   String message;
-  List<Result> result;
+  List<Transactions> transactions;
 
-  factory TransactionModel.fromMap(Map<String, dynamic> json) => TransactionModel(
-    status: json['status'],
-    message: json['message'],
-    result: List<Result>.from(json['result'].map((x) => Result.fromMap(x))),
-  );
+  factory TransactionModel.fromMap(Map<String, dynamic> json) =>
+      TransactionModel(
+        status: json['status'],
+        message: json['message'],
+        transactions: List<Transactions>.from(
+            json['result'].map((x) => Transactions.fromMap(x))),
+      );
 
   Map<String, dynamic> toMap() => {
-    'status': status,
-    'message': message,
-    'result': List<dynamic>.from(result.map((x) => x.toMap())),
-  };
+        'status': status,
+        'message': message,
+        'result': List<dynamic>.from(transactions.map((x) => x.toMap())),
+      };
 }
 
-class Result {
-  Result({
+class Transactions {
+  Transactions({
     required this.blockNumber,
     required this.timeStamp,
     required this.hash,
@@ -74,45 +73,45 @@ class Result {
   String gasUsed;
   String confirmations;
 
-  factory Result.fromMap(Map<String, dynamic> json) => Result(
-    blockNumber: json['blockNumber'],
-    timeStamp: json['timeStamp'],
-    hash: json['hash'],
-    nonce: json['nonce'],
-    blockHash: json['blockHash'],
-    transactionIndex: json['transactionIndex'],
-    from: json['from'],
-    to: json['to'],
-    value: json['value'],
-    gas: json['gas'],
-    gasPrice: json['gasPrice'],
-    isError: json['isError'],
-    txreceiptStatus: json['txreceipt_status'],
-    input: json['input'],
-    contractAddress: json['contractAddress'],
-    cumulativeGasUsed: json['cumulativeGasUsed'],
-    gasUsed: json['gasUsed'],
-    confirmations: json['confirmations'],
-  );
+  factory Transactions.fromMap(Map<String, dynamic> json) => Transactions(
+        blockNumber: json['blockNumber'] ?? '',
+        timeStamp: json['timeStamp'] ?? '',
+        hash: json['hash'] ?? '',
+        nonce: json['nonce'] ?? '',
+        blockHash: json['blockHash'] ?? '',
+        transactionIndex: json['transactionIndex'] ?? '',
+        from: json['from'] ?? '',
+        to: json['to'] ?? '',
+        value: json['value'] ?? '',
+        gas: json['gas'] ?? '',
+        gasPrice: json['gasPrice'] ?? '',
+        isError: json['isError'] ?? '',
+        txreceiptStatus: json['txreceipt_status'] ?? '',
+        input: json['input'] ?? '',
+        contractAddress: json['contractAddress'] ?? '',
+        cumulativeGasUsed: json['cumulativeGasUsed'] ?? '',
+        gasUsed: json['gasUsed'] ?? '',
+        confirmations: json['confirmations'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
-    'blockNumber': blockNumber,
-    'timeStamp': timeStamp,
-    'hash': hash,
-    'nonce': nonce,
-    'blockHash': blockHash,
-    'transactionIndex': transactionIndex,
-    'from': from,
-    'to': to,
-    'value': value,
-    'gas': gas,
-    'gasPrice': gasPrice,
-    'isError': isError,
-    'txreceipt_status': txreceiptStatus,
-    'input': input,
-    'contractAddress': contractAddress,
-    'cumulativeGasUsed': cumulativeGasUsed,
-    'gasUsed': gasUsed,
-    'confirmations': confirmations,
-  };
+        'blockNumber': blockNumber,
+        'timeStamp': timeStamp,
+        'hash': hash,
+        'nonce': nonce,
+        'blockHash': blockHash,
+        'transactionIndex': transactionIndex,
+        'from': from,
+        'to': to,
+        'value': value,
+        'gas': gas,
+        'gasPrice': gasPrice,
+        'isError': isError,
+        'txreceipt_status': txreceiptStatus,
+        'input': input,
+        'contractAddress': contractAddress,
+        'cumulativeGasUsed': cumulativeGasUsed,
+        'gasUsed': gasUsed,
+        'confirmations': confirmations,
+      };
 }

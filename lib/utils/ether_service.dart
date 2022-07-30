@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:metamask/models/transaction_model.dart';
 import 'package:metamask/pages/wallet_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:walletconnect_dart/walletconnect_dart.dart';
@@ -12,6 +13,7 @@ var listenableSession = ValueNotifier<SessionStatus?>(null);
 var listenableConnectionStatus =
     ValueNotifier('Connect to a Polygon wallet to use this service');
 var listenableUri = ValueNotifier('');
+var listenableTransactions = ValueNotifier<List<Transactions>>([]);
 var listenableBal = ValueNotifier('0.0');
 var listenableSignature = ValueNotifier('');
 var listenableConnector = ValueNotifier<WalletConnect>(WalletConnect(
@@ -52,7 +54,7 @@ class EtherService {
     // end: 2
     if (text.toString().length > size) {
       String finalString =
-          '${text.substring(0, 4)}...${text.substring(text.length - 2)}';
+          '${text.substring(0, 13)}...${text.substring(text.length - 2)}';
       return finalString;
     }
     return text;
