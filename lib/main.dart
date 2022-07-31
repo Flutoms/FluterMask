@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:metamask/pages/login_page.dart';
+import 'package:metamask/pages/wallet_page.dart';
 
-import 'pages/login_page.dart';
-import 'utils/routes.dart';
+import 'utils/ether_service.dart';
+import 'utils/size_config.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -12,11 +15,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: MyRoutes.loginRoute,
-      routes: {
-        MyRoutes.loginRoute: (context) => const LoginPage(),
-      },
-    );
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+        value: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+        ),
+        child: LayoutBuilder(builder: (context, constraints) {
+          return OrientationBuilder(builder: (context, orientation) {
+            SizeConfig().init(constraints, orientation);
+            return MaterialApp(
+              home: listenableSession.value == null
+                  ? const LoginPage()
+                  : const WalletPage(),
+              debugShowCheckedModeBanner: false,
+            );
+          });
+        }));
   }
 }
