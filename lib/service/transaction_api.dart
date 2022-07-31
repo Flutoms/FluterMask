@@ -25,6 +25,9 @@ class TransactionApi {
       _response = await http.get(uri);
 
       if (_response.statusCode == 200) {
+
+        print(_response.body);
+
         listenableTransactions.value =
             transactionModelFromMap(_response.body).transactions;
       }

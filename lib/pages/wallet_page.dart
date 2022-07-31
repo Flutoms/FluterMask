@@ -21,7 +21,7 @@ class _WalletPageState extends State<WalletPage> {
         children: [
           Container(
             width: double.infinity,
-            color: GlobalColors.polygonColor,
+            color: GlobalColors.polygonDarkColor,
             child: Padding(
               padding: EdgeInsets.only(
                 left: SizeConfig.heightAdjusted(3),

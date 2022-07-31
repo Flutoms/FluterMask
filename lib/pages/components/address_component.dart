@@ -31,18 +31,18 @@ class AddressComponent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(GlobalAssets.profileIcon,
-                        color: GlobalColors.polygonColor, height: 35),
+                        color: GlobalColors.polygonDarkColor, height: 35),
                     SizedBox(width: SizeConfig.widthAdjusted(1.5)),
                     session.accounts[0].length > 1
                         ? Text(
                             '${session.accounts[0].substring(0, 4)}'
                             '...${session.accounts[0].substring(session.accounts[0].length - 4)}',
                             style: GlobalTextStyles.medium(
-                                fontSize: 12, color: GlobalColors.polygonColor))
+                                fontSize: 12, color: GlobalColors.polygonDarkColor))
                         : Text('0',
                             style: GlobalTextStyles.medium(
                                 fontSize: 12,
-                                color: GlobalColors.polygonColor)),
+                                color: GlobalColors.polygonDarkColor)),
                     SizedBox(width: SizeConfig.widthAdjusted(1.5)),
                   ],
                 ),

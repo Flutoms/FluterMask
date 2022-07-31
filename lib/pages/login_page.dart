@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context, String value, child) {
           uri = value;
           return Scaffold(
-            backgroundColor: GlobalColors.polygonColor,
+            backgroundColor: GlobalColors.polygonDarkColor,
             body: Padding(
               padding: const EdgeInsets.only(top: 190),
               child: Center(
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(100)),
                                 child: Text('Connect with Metamask',
                                     style: TextStyle(
-                                        color: GlobalColors.polygonColor,
+                                        color: GlobalColors.polygonDarkColor,
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600))),
                           ),
