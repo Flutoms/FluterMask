@@ -23,6 +23,9 @@ dependencies:
   # For smooth page transition
   page_transition: ^2.0.5
 
+  # For Toast messages
+  fluttertoast: ^8.0.8
+
   # For state management
   flutter_bloc: ^8.0.1
 
@@ -36,9 +39,12 @@ dependencies:
   modal_bottom_sheet:
 
   url_launcher: ^6.1.2
+
   walletconnect_dart: ^0.0.11
+
   google_fonts: ^3.0.1
   slider_button: ^2.0.0
+
   web3dart: ^2.3.5
 
 dev_dependencies:

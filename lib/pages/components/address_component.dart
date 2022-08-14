@@ -15,10 +15,12 @@ class AddressComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MultiValueListenableBuilder(
         valueListenables: [listenableSession],
         builder: (context, value, child) {
           SessionStatus session = value[0];
+          print(session.accounts[0].length);
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
