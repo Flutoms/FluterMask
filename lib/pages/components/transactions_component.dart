@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
 import 'package:metamask/models/transaction_model.dart';
 import 'package:metamask/service/transaction_api.dart';
 import 'package:metamask/utils/assets.dart';
@@ -9,9 +8,9 @@ import 'package:metamask/utils/colors.dart';
 import 'package:metamask/utils/ether_service.dart';
 import 'package:metamask/utils/size_config.dart';
 import 'package:metamask/utils/text_styles.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'cupertino_transction_details_component.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class TransactionsComponent extends StatefulWidget {
   const TransactionsComponent({
@@ -48,11 +47,14 @@ class _TransactionsComponentState extends State<TransactionsComponent> {
                         context: context,
                         removeTop: true,
                         child: Flexible(
-                            child: ListView.builder(
-                                itemCount: values.length,
-                                itemBuilder: (context, index) =>
-                                    TransactionItem(
-                                        transaction: values[index]))))
+                            child: RefreshIndicator(
+                              onRefresh: () =>  TransactionApi().transactions(),
+                              child: ListView.builder(
+                                  itemCount: values.length,
+                                  itemBuilder: (context, index) =>
+                                      TransactionItem(
+                                          transaction: values[index])),
+                            )))
                   ],
                 ),
               ),

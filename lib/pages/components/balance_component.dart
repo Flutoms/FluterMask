@@ -66,10 +66,12 @@ class _BalanceComponentState extends State<BalanceComponent> {
                       stream: channel.stream,
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
+
                           var jsonBody =
                           jsonDecode(snapshot.data as String);
                           var ethereumPrice = double.tryParse(
                               jsonBody['polygon']);
+
                           usdBalance = (ethereumPrice! *
                               double.tryParse(walletBal)!)
                               .toStringAsFixed(3);

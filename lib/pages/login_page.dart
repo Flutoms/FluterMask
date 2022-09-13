@@ -20,13 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // listenableConnector.value.on('connect', (session) => listenableSession.value = session);
-    // listenableConnector.value.on('disconnect', (payload) => listenableSession.value = null);
-    // listenableConnector.value.on('session_update', (payload) {
-    //   listenableSession.value = payload as SessionStatus?;
-    //   print(listenableSession.value!.accounts[0]);
-    //   print(listenableSession.value!.chainId);
-    // });
+
 
     return ValueListenableBuilder(
         valueListenable: listenableUri,

@@ -13,26 +13,24 @@ class TransactionApi {
     try {
       final uri = Uri.https('api-testnet.polygonscan.com', '/api', {
         'module': 'account',
-        'action': 'txlistinternal',
+        'action': 'txlist',
         'address': listenableSession.value!.accounts[0],
         'startblock': '0',
         'endblock': '99999999',
         'page': '1',
-        'offset': '10',
-        'sort': 'asc',
+        'offset': '1000',
+        'sort': 'desc',
         'apikey': _apikey,
       });
+
       _response = await http.get(uri);
 
       if (_response.statusCode == 200) {
-
-        print(_response.body);
-
         listenableTransactions.value =
             transactionModelFromMap(_response.body).transactions;
       }
     } catch (_) {
-      debugPrint('Error in completing order $_');
+      debugPrint('Error occured $_');
     }
   }
 }
