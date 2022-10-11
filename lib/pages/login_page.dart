@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:metamask/utils/assets.dart';
 import 'package:metamask/utils/colors.dart';
 import 'package:metamask/utils/ether_service.dart';
-import 'package:metamask/utils/multi_value_listenable.dart';
-import 'package:slider_button/slider_button.dart';
-import 'package:walletconnect_dart/walletconnect_dart.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
